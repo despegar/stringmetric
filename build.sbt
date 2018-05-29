@@ -12,7 +12,7 @@ lazy val cli = (project in file("cli")).
 
 lazy val root = (project in file(".")).
   settings(
-    crossScalaVersions := Seq("2.12.4", "2.11.1", "2.10.4"),
+    crossScalaVersions := Seq("2.12.4", "2.11.11"),
     crossVersion := CrossVersion.binary,
     name := "stringmetric",
     organization := "com.despegar.vr",
