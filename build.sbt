@@ -1,5 +1,3 @@
-crossScalaVersions := Seq("2.12.4", "2.11.11")
-crossVersion := CrossVersion.binary
 organization := "com.despegar.vr"
 publishMavenStyle := true
 publishTo := Some("Nexus releases" at "http://nexus.despegar.it:8080/nexus/content/repositories/releases/")
@@ -14,13 +12,15 @@ scalaVersion := "2.12.4"
 lazy val core = (project in  file("core")).
   settings(
     libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.9.4" % "test"),
-    name := "stringmetric-core"
+    name := "stringmetric-core",
+    releaseVersionFile := file(name.value + "/version.sbt")
   )
 
 lazy val cli = (project in file("cli")).
   settings(
     libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.9.4" % "test"),
-    name := "stringmetric-cli"
+    name := "stringmetric-cli",
+    releaseVersionFile := file(name.value + "/version.sbt")
   ).dependsOn(core)
 
 lazy val root = (project in file(".")).
